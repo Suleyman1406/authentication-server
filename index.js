@@ -13,7 +13,7 @@ const SECRET_KEY = "secret123"; // JWT için secret key (gerçek projede .env do
 
 // Kullanıcı kaydı (Register)
 app.post("/register", async (req, res) => {
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password, firstName, lastName, role } = req.body;
 
   if (!email || !password || !firstName || !lastName) {
     return res.status(400).json({
@@ -37,7 +37,7 @@ app.post("/register", async (req, res) => {
     firstName,
     lastName,
     password: hashedPassword,
-    role: "User", // Varsayılan rol User
+    role: role || "User", // Varsayılan rol User
   };
   users.push(newUser);
 
