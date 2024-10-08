@@ -98,9 +98,9 @@ app.get("/current-user", authenticateToken, (req, res) => {
   }
 
   // Şifreyi göndermiyoruz
-  const { id, username, role } = currentUser;
+  const { id, firstName, lastName, email, role } = currentUser;
 
-  res.json({ id, username, role });
+  res.json({ id, firstName, lastName, email, role });
 });
 
 // Sadece Admin erişimi olan bir rota
